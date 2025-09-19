@@ -287,4 +287,15 @@ body {
     outline: none;
     border-color: #e74c3c;
 
+
+}
+
+:root {
+    --primary-color: #e74c3c;
+    --secondary-color: #34495e;
+    --accent-color: #3498db;
+    --light-bg: #f8f9fa;
+    --dark-text: #333;
+    --light-text: #666;
+    --border-radius: 8px;
 }

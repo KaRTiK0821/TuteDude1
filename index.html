@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Greeting Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="greeting">Hello</header>
+
+  <div class="box-container">
+    <div class="box red" onclick="changeColor(this, 'red')">Red</div>
+    <div class="box blue" onclick="changeColor(this, 'blue')">Blue</div>
+    <div class="box green" onclick="changeColor(this, 'green')">Green</div>
+    <div class="box yellow" onclick="changeColor(this, 'yellow')">Yellow</div>
+  </div>
+
+  <div class="input-container">
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <button onclick="greetUser()">Greet</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

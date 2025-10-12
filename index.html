@@ -1,26 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Greeting Page</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Laundry Services</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header id="greeting">Hello</header>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <div class="logo">Logo</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services-section">Services</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+      <div class="username">Username</div>
+    </div>
+  </nav>
 
-  <div class="box-container">
-    <div class="box red" onclick="changeColor(this, 'red')">Red</div>
-    <div class="box blue" onclick="changeColor(this, 'blue')">Blue</div>
-    <div class="box green" onclick="changeColor(this, 'green')">Green</div>
-    <div class="box yellow" onclick="changeColor(this, 'yellow')">Yellow</div>
+  <!-- Hero -->
+  <header id="home" class="hero">
+    <div class="container hero-inner">
+      <div class="hero-left">
+        <h1>
+          Revitalize Your Clothes with Expert
+          <span class="accent"> Laundry Services!</span>
+        </h1>
+        <p class="lead">
+          From premium dry cleaning to swift wash and fold, we deliver care and
+          convenience. Schedule a pickup and rediscover the freshness of your
+          clothes today!
+        </p>
+        <button id="book-btn" class="primary-btn">📅 Book a service today!</button>
+      </div>
+
+      <div class="hero-right">
+        <!-- use local image or the provided URL -->
+        <img
+          src="https://cdn3d.iconscout.com/3d/premium/thumb/laundry-10514405-8530782.png"
+          alt="washing machine"
+        />
+      </div>
+    </div>
+  </header>
+<!-- achievements Section -->
+<section class="achievements">
+  <div class="achievements-inner">
+    <div class="ach-title">
+      <h2>Our Achievements</h2>
+    </div>
+    <div class="ach-stats">
+      <div class="stat">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Laundry Services</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">240+</div>
+        <div class="stat-label">Happy Customers</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">2+ Yrs</div>
+        <div class="stat-label">Experience</div>
+      </div>
+    </div>
   </div>
+</section>
 
-  <div class="input-container">
-    <input type="text" id="nameInput" placeholder="Enter your name">
-    <button onclick="greetUser()">Greet</button>
-  </div>
 
+  <!-- Booking Section -->
+  <section id="services-section" class="booking">
+    <div class="container">
+      <h2>Book Your Laundry Service</h2>
+      <form id="booking-form" class="booking-form">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <input type="text" name="service" placeholder="Service Type (e.g. Dry Cleaning)" required />
+        <button type="submit" class="primary-btn">Book Now</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

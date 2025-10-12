@@ -1,58 +1,194 @@
+/* ========== Reset & base ========== */
+:root{
+  --bg: #ffffff;
+  --text: #222831;
+  --muted: #6b7280;
+  --primary: #39a8ff; /* achievement blue */
+  --accent: #1a73e8;  /* button / highlight */
+  --container-max: 1100px;
+  --radius-sm: 0.5rem;
+}
+
+* { box-sizing: border-box; margin:0; padding:0; }
+html { font-size: 16px; } /* 1rem = 16px */
 body {
-  font-family: Arial, sans-serif;
-  text-align: center;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.45;
+}
+
+/* Container utility */
+.container {
+  width: 90%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ========== Navbar ========== */
+.navbar {
   background: #fff;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+.nav-inner {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 1rem 0;
+}
+.logo { font-weight:700; font-size:1.125rem; color:var(--text); }
+.nav-links { list-style:none; display:flex; gap:1.5rem; align-items:center; }
+.nav-links a { text-decoration:none; color:var(--muted); font-weight:500; font-size:0.95rem; }
+.nav-links a:hover { color:var(--text); }
+.username {
+  background:#EAF6FF;
+  color:var(--accent);
+  padding:0.4rem 0.8rem;
+  border-radius:0.6rem;
+  font-weight:600;
+  font-size:0.9rem;
 }
 
-header {
-  background: #f0f0f0;
-  padding: 1rem;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
+/* ========== Hero ========== */
+.hero { padding:3.5rem 0; }
+.hero-inner { display:flex; gap:2rem; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+.hero-left { flex:1 1 46%; min-width: 260px; }
+.hero-right { flex:1 1 44%; display:flex; justify-content:flex-end; min-width:220px; }
 
-.box-container {
-  margin: 2rem 0;
+.hero-left h1 {
+  font-size:2.25rem; line-height:1.05; margin-bottom:0.8rem; color:var(--text);
 }
+.hero-left .accent { color:var(--primary); display:block; font-weight:700; }
+.lead { color:var(--muted); margin-bottom:1.3rem; font-size:1rem; max-width:45rem; }
 
-.box {
-  display: inline-block;
-  width: 80px;
-  height: 80px;
-  line-height: 80px;
-  margin: 0 10px;
+.primary-btn {
+  background: var(--primary);
   color: #fff;
-  font-weight: bold;
-  text-align: center;
-  cursor: pointer;
-}
-
-.red, .blue, .green, .yellow {
-  background: gray;
-}
-
-.yellow { 
-  color: black; 
-}
-
-.input-container {
-  margin-top: 2rem;
-}
-
-input[type="text"] {
-  padding: 0.5rem;
-  width: 150px;
-}
-
-button {
-  padding: 0.5rem 1rem;
-  margin-left: 5px;
-  background: #ccc;
   border: none;
-  cursor: pointer;
+  padding: 0.85rem 1.25rem;
+  border-radius: 1rem;
+  font-weight:600;
+  cursor:pointer;
+  font-size:1rem;
+  box-shadow: 0 8px 20px rgba(26,115,232,0.12);
+}
+.primary-btn:hover { transform: translateY(-2px); transition: transform 160ms ease; }
+
+.hero-right img { width:100%; max-width:360px; display:block; }
+
+/* ========== Achievements Section ========== */
+.achievements {
+  background: #f9fbff; /* same background as main page */
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
 }
 
-button:hover {
-  background: #999;
-  color: #fff;
+.achievements-inner {
+  background: var(--primary); /* blue background */
+  border-radius: 1rem;
+  width: 90%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 1.75rem 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.ach-title h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f1724;
+}
+
+/* Stats layout */
+.ach-stats {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.stat {
+  text-align: center;
+  min-width: 8rem;
+}
+
+.stat-number {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #07132a;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #08121e;
+  opacity: 0.9;
+  font-weight: 600;
+}
+
+/* Dividers */
+.ach-stats .stat + .stat {
+  position: relative;
+  padding-left: 1.75rem;
+}
+.ach-stats .stat + .stat::before {
+  content: "";
+  position: absolute;
+  left: 0.65rem;
+  top: 0.25rem;
+  bottom: 0.25rem;
+  width: 1px;
+  background: rgba(255,255,255,0.3);
+  transform: translateX(-50%);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .achievements-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .ach-stats {
+    justify-content: center;
+  }
+  .ach-stats .stat + .stat::before {
+    display: none;
+  }
+}
+
+/* ========== Booking section ========== */
+.booking { padding: 3rem 0; background: #f7fbff; }
+.booking h2 { text-align:center; color:var(--accent); font-size:1.5rem; margin-bottom:1.25rem; }
+.booking-form { max-width:480px; margin:0 auto; display:flex; flex-direction:column; gap:0.85rem; }
+.booking-form input {
+  padding:0.8rem 1rem; border-radius:0.6rem; border:1px solid rgba(10,10,10,0.06); font-size:0.95rem;
+}
+
+/* responsive adjustments */
+@media (max-width: 900px) {
+  .achievements-inner { flex-direction:column; align-items:stretch; text-align:center; gap:1rem; }
+  .ach-title { order:1; }
+  .ach-stats { order:2; justify-content:center; }
+  .ach-stats .stat + .stat::before { display:none; }
+  .hero-left h1 { font-size:1.9rem; }
+}
+
+@media (max-width: 560px) {
+  html { font-size:15px; }
+  .nav-links { display:none; } /* simple mobile collapse: hide nav links */
+  .username { font-size:0.85rem; padding:0.35rem 0.6rem; }
+  .hero-right { justify-content:center; margin-top:1rem; }
+  .hero-left, .hero-right { flex-basis:100%; }
+  .primary-btn { width:100%; max-width:320px; }
+  .achievements { padding:1rem 0.5rem; }
+  .achievements-inner { gap:0.6rem; }
+  .stat { min-width:6.5rem; padding:0.5rem 0.8rem; }
 }

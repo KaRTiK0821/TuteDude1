@@ -1,9 +1,14 @@
 // Initialize EmailJS
 (function() {
-    emailjs.init("S6jXezHzV9UpRSgiY");
+    emailjs.init("S6jXezHzV9UpRSgiY"); // Replace with your actual EmailJS public key
 })();
 
 // DOM Elements
+const usernameModal = document.getElementById('usernameModal');
+const usernameInput = document.getElementById('usernameInput');
+const saveUsernameBtn = document.getElementById('saveUsernameBtn');
+const userDisplay = document.getElementById('userDisplay');
+const changeUsernameBtn = document.getElementById('changeUsernameBtn');
 const bookServiceBtn = document.getElementById('bookServiceBtn');
 const cartItems = document.getElementById('cartItems');
 const totalAmount = document.getElementById('totalAmount');
@@ -17,8 +22,39 @@ const navMenu = document.querySelector('.nav-menu');
 let cart = [];
 let total = 0;
 
-// Event Listeners
+// Username Functions
+function showUsernameModal() {
+    usernameModal.style.display = 'flex';
+}
+
+function hideUsernameModal() {
+    usernameModal.style.display = 'none';
+}
+
+function saveUsername() {
+    const username = usernameInput.value.trim();
+    if (username) {
+        userDisplay.textContent = username;
+        localStorage.setItem('laundryUsername', username);
+        hideUsernameModal();
+    } else {
+        alert('Please enter a valid name');
+    }
+}
+
+function changeUsername() {
+    showUsernameModal();
+}
+
+// Check for saved username on page load
 document.addEventListener('DOMContentLoaded', function() {
+    const savedUsername = localStorage.getItem('laundryUsername');
+    if (savedUsername) {
+        userDisplay.textContent = savedUsername;
+    } else {
+        showUsernameModal();
+    }
+    
     // Add event listeners to all "Add Item" buttons
     const addButtons = document.querySelectorAll('.add-btn');
     addButtons.forEach(button => {
@@ -42,8 +78,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // Close mobile menu when clicking on a link
     document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', closeMenu));
     
-    // Set user name (in a real app, this would come from authentication)
-    document.getElementById('userDisplay').textContent = 'John Doe';
+    // Username modal events
+    saveUsernameBtn.addEventListener('click', saveUsername);
+    changeUsernameBtn.addEventListener('click', changeUsername);
+    
+    // Close modal when clicking outside
+    usernameModal.addEventListener('click', function(e) {
+        if (e.target === usernameModal) {
+            hideUsernameModal();
+        }
+    });
+    
+    // Allow Enter key to save username
+    usernameInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            saveUsername();
+        }
+    });
 });
 
 // Cart Functions

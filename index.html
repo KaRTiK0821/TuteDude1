@@ -1,90 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Laundry Services</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshLaundry - Professional Laundry Services</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="container nav-inner">
-      <div class="logo">Logo</div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services-section">Services</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#contact">Contact Us</a></li>
-      </ul>
-      <div class="username">Username</div>
-    </div>
-  </nav>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h2>FreshLaundry</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#services" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact Us</a>
+                </li>
+                <li class="nav-item user-name">
+                    <span id="userDisplay">Guest</span>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
 
-  <!-- Hero -->
-  <header id="home" class="hero">
-    <div class="container hero-inner">
-      <div class="hero-left">
-        <h1>
-          Revitalize Your Clothes with Expert
-          <span class="accent"> Laundry Services!</span>
-        </h1>
-        <p class="lead">
-          From premium dry cleaning to swift wash and fold, we deliver care and
-          convenience. Schedule a pickup and rediscover the freshness of your
-          clothes today!
-        </p>
-        <button id="book-btn" class="primary-btn">📅 Book a service today!</button>
-      </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-left">
+                <h1>Revitalize Your Clothes with Expert Laundry Services!</h1>
+                <p>From premium dry cleaning to swift wash and fold, we deliver care and convenience. Schedule a pickup and rediscover the freshness of your clothes today!</p>
+                <button id="bookServiceBtn" class="cta-button">Book a service today!</button>
+            </div>
+            <div class="hero-right">
+                <img src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Laundry Services">
+            </div>
+        </div>
+    </section>
 
-      <div class="hero-right">
-        <!-- use local image or the provided URL -->
-        <img
-          src="https://cdn3d.iconscout.com/3d/premium/thumb/laundry-10514405-8530782.png"
-          alt="washing machine"
-        />
-      </div>
-    </div>
-  </header>
-<!-- achievements Section -->
-<section class="achievements">
-  <div class="achievements-inner">
-    <div class="ach-title">
-      <h2>Our Achievements</h2>
-    </div>
-    <div class="ach-stats">
-      <div class="stat">
-        <div class="stat-number">15+</div>
-        <div class="stat-label">Laundry Services</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">240+</div>
-        <div class="stat-label">Happy Customers</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">2+ Yrs</div>
-        <div class="stat-label">Experience</div>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- Service Overview Section -->
+    <section class="achievements">
+        <div class="achievements-container">
+            <div class="achievement-item">
+                <h3>15+</h3>
+                <p>Laundry Services</p>
+            </div>
+            <div class="achievement-item">
+                <h3>240+</h3>
+                <p>Happy Customers</p>
+            </div>
+            <div class="achievement-item">
+                <h3>2+</h3>
+                <p>Years of Experience</p>
+            </div>
+        </div>
+    </section>
 
+    <!-- Quality Description Section -->
+    <section class="quality-section">
+        <div class="quality-container">
+            <h2>Why Choose Our Services?</h2>
+            <div class="quality-items">
+                <div class="quality-item">
+                    <h3>Premium Services</h3>
+                    <p>We use the latest technology and eco-friendly products to ensure your clothes receive the best care possible.</p>
+                </div>
+                <div class="quality-item">
+                    <h3>Quick Support</h3>
+                    <p>Our dedicated customer support team is available to assist you with any queries or concerns promptly.</p>
+                </div>
+                <div class="quality-item">
+                    <h3>Timely Delivery</h3>
+                    <p>We understand the importance of time and ensure your laundry is delivered right when you need it.</p>
+                </div>
+                <div class="quality-item">
+                    <h3>Affordable Prices</h3>
+                    <p>Quality service doesn't have to be expensive. We offer competitive pricing for all our services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Booking Section -->
-  <section id="services-section" class="booking">
-    <div class="container">
-      <h2>Book Your Laundry Service</h2>
-      <form id="booking-form" class="booking-form">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <input type="text" name="service" placeholder="Service Type (e.g. Dry Cleaning)" required />
-        <button type="submit" class="primary-btn">Book Now</button>
-      </form>
-    </div>
-  </section>
+    <!-- Booking Services Section -->
+    <section id="services" class="booking-section">
+        <div class="booking-container">
+            <h2>Our Services</h2>
+            <p class="section-subtitle">Click On The Add To Cart Button To Add The Services To Your Cart</p>
+            
+            <div class="booking-content">
+                <!-- Left Section - Services List -->
+                <div class="services-list">
+                    <div class="service-item">
+                        <h3>Dry Cleaning</h3>
+                        <p class="price">¥200.00</p>
+                        <button class="add-btn" data-service="Dry Cleaning" data-price="200">Add Item</button>
+                    </div>
+                    <div class="service-item">
+                        <h3>Wash & Fold</h3>
+                        <p class="price">¥100.00</p>
+                        <button class="add-btn" data-service="Wash & Fold" data-price="100">Add Item</button>
+                    </div>
+                    <div class="service-item">
+                        <h3>Ironing</h3>
+                        <p class="price">¥30.00</p>
+                        <button class="add-btn" data-service="Ironing" data-price="30">Add Item</button>
+                    </div>
+                    <div class="service-item">
+                        <h3>Stain Removal</h3>
+                        <p class="price">¥500.00</p>
+                        <button class="add-btn" data-service="Stain Removal" data-price="500">Add Item</button>
+                    </div>
+                    <div class="service-item">
+                        <h3>Leather & Suede Cleaning</h3>
+                        <p class="price">¥999.00</p>
+                        <button class="add-btn" data-service="Leather & Suede Cleaning" data-price="999">Add Item</button>
+                    </div>
+                    <div class="service-item">
+                        <h3>Wedding Dress Cleaning</h3>
+                        <p class="price">¥2800.00</p>
+                        <button class="add-btn" data-service="Wedding Dress Cleaning" data-price="2800">Add Item</button>
+                    </div>
+                    <p class="add-info">Add items to the cart</p>
+                </div>
+                
+                <!-- Right Section - Cart and Booking Form -->
+                <div class="cart-section">
+                    <div class="cart-container">
+                        <h3>Added Items</h3>
+                        <div class="cart-items" id="cartItems">
+                            <p class="empty-cart">No items added yet</p>
+                        </div>
+                        <div class="total-amount">
+                            <h4>Total Amount: <span id="totalAmount">¥0.00</span></h4>
+                        </div>
+                    </div>
+                    
+                    <div class="booking-form">
+                        <h3>Book Now</h3>
+                        <form id="bookingForm">
+                            <div class="form-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" id="fullName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email ID</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" required>
+                            </div>
+                            <button type="submit" class="book-now-btn">Book Now</button>
+                        </form>
+                        <div id="confirmationMessage" class="confirmation-message"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-  <script src="script.js"></script>
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="newsletter-container">
+            <h2>Subscribe to our newsletter</h2>
+            <p>Stay updated with our latest offers and services</p>
+            <form id="newsletterForm" class="newsletter-form">
+                <div class="form-group">
+                    <input type="text" id="newsletterName" placeholder="Full name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="newsletterEmail" placeholder="Email" required>
+                </div>
+                <button type="submit" class="subscribe-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="logo">
+                    <h2>FreshLaundry</h2>
+                </div>
+                <p class="about-text">Lorem Ipsum Dolor Sit Amet Conssectetur. Sed At Conque.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Important Links</h3>
+                <ul>
+                    <li><a href="#about">About us</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of use</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>mail@freshlaundry.com</p>
+                <p>+91 91234 56780</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook">FB</a>
+                    <a href="#" aria-label="Twitter">TW</a>
+                    <a href="#" aria-label="Instagram">IG</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 FreshLaundry. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

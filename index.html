@@ -5,15 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FreshLaundry - Professional Laundry Services</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
+    <!-- Username Modal -->
+    <div id="usernameModal" class="modal">
+        <div class="modal-content">
+            <h3>Welcome to FreshLaundry</h3>
+            <p>Please enter your name to get started</p>
+            <div class="form-group">
+                <input type="text" id="usernameInput" placeholder="Enter your name" required>
+            </div>
+            <button id="saveUsernameBtn" class="cta-button">Continue</button>
+        </div>
+    </div>
+
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <h2>FreshLaundry</h2>
-            </div>
+        <div class="container nav-container">
+            <div class="logo">FreshLaundry</div>
             <ul class="nav-menu">
                 <li class="nav-item">
                     <a href="#home" class="nav-link">Home</a>
@@ -28,7 +39,8 @@
                     <a href="#contact" class="nav-link">Contact Us</a>
                 </li>
                 <li class="nav-item user-name">
-                    <span id="userDisplay">Guest</span>
+                    <span id="userDisplay">Username</span>
+                    <button id="changeUsernameBtn" class="change-btn">Change</button>
                 </li>
             </ul>
             <div class="hamburger">
@@ -41,21 +53,21 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-container">
+        <div class="container hero-container">
             <div class="hero-left">
-                <h1>Revitalize Your Clothes with Expert Laundry Services!</h1>
+                <h1>Revitalize Your<br>Clothes with Expert<br>Laundry Services!</h1>
                 <p>From premium dry cleaning to swift wash and fold, we deliver care and convenience. Schedule a pickup and rediscover the freshness of your clothes today!</p>
                 <button id="bookServiceBtn" class="cta-button">Book a service today!</button>
             </div>
             <div class="hero-right">
-                <img src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Laundry Services">
+                <img src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Laundry Services" class="hero-image">
             </div>
         </div>
     </section>
 
-    <!-- Service Overview Section -->
+    <!-- Achievements Section -->
     <section class="achievements">
-        <div class="achievements-container">
+        <div class="container achievements-container">
             <div class="achievement-item">
                 <h3>15+</h3>
                 <p>Laundry Services</p>
@@ -71,74 +83,60 @@
         </div>
     </section>
 
-    <!-- Quality Description Section -->
-    <section class="quality-section">
-        <div class="quality-container">
-            <h2>Why Choose Our Services?</h2>
-            <div class="quality-items">
-                <div class="quality-item">
-                    <h3>Premium Services</h3>
-                    <p>We use the latest technology and eco-friendly products to ensure your clothes receive the best care possible.</p>
-                </div>
-                <div class="quality-item">
-                    <h3>Quick Support</h3>
-                    <p>Our dedicated customer support team is available to assist you with any queries or concerns promptly.</p>
-                </div>
-                <div class="quality-item">
-                    <h3>Timely Delivery</h3>
-                    <p>We understand the importance of time and ensure your laundry is delivered right when you need it.</p>
-                </div>
-                <div class="quality-item">
-                    <h3>Affordable Prices</h3>
-                    <p>Quality service doesn't have to be expensive. We offer competitive pricing for all our services.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Booking Services Section -->
-    <section id="services" class="booking-section">
-        <div class="booking-container">
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container services-container">
             <h2>Our Services</h2>
             <p class="section-subtitle">Click On The Add To Cart Button To Add The Services To Your Cart</p>
             
-            <div class="booking-content">
-                <!-- Left Section - Services List -->
-                <div class="services-list">
-                    <div class="service-item">
+            <div class="services-content">
+                <!-- Services Grid -->
+                <div class="services-grid">
+                    <div class="service-card">
                         <h3>Dry Cleaning</h3>
                         <p class="price">¥200.00</p>
-                        <button class="add-btn" data-service="Dry Cleaning" data-price="200">Add Item</button>
+                        <div class="service-actions">
+                            <button class="add-btn" data-service="Dry Cleaning" data-price="200">Add Item</button>
+                        </div>
                     </div>
-                    <div class="service-item">
+                    <div class="service-card">
                         <h3>Wash & Fold</h3>
                         <p class="price">¥100.00</p>
-                        <button class="add-btn" data-service="Wash & Fold" data-price="100">Add Item</button>
+                        <div class="service-actions">
+                            <button class="add-btn" data-service="Wash & Fold" data-price="100">Add Item</button>
+                        </div>
                     </div>
-                    <div class="service-item">
+                    <div class="service-card">
                         <h3>Ironing</h3>
                         <p class="price">¥30.00</p>
-                        <button class="add-btn" data-service="Ironing" data-price="30">Add Item</button>
+                        <div class="service-actions">
+                            <button class="add-btn" data-service="Ironing" data-price="30">Add Item</button>
+                        </div>
                     </div>
-                    <div class="service-item">
+                    <div class="service-card">
                         <h3>Stain Removal</h3>
                         <p class="price">¥500.00</p>
-                        <button class="add-btn" data-service="Stain Removal" data-price="500">Add Item</button>
+                        <div class="service-actions">
+                            <button class="add-btn" data-service="Stain Removal" data-price="500">Add Item</button>
+                        </div>
                     </div>
-                    <div class="service-item">
+                    <div class="service-card">
                         <h3>Leather & Suede Cleaning</h3>
                         <p class="price">¥999.00</p>
-                        <button class="add-btn" data-service="Leather & Suede Cleaning" data-price="999">Add Item</button>
+                        <div class="service-actions">
+                            <button class="add-btn" data-service="Leather & Suede Cleaning" data-price="999">Add Item</button>
+                        </div>
                     </div>
-                    <div class="service-item">
+                    <div class="service-card">
                         <h3>Wedding Dress Cleaning</h3>
                         <p class="price">¥2800.00</p>
-                        <button class="add-btn" data-service="Wedding Dress Cleaning" data-price="2800">Add Item</button>
+                        <div class="service-actions">
+                            <button class="add-btn" data-service="Wedding Dress Cleaning" data-price="2800">Add Item</button>
+                        </div>
                     </div>
-                    <p class="add-info">Add items to the cart</p>
                 </div>
                 
-                <!-- Right Section - Cart and Booking Form -->
+                <!-- Cart and Booking Section -->
                 <div class="cart-section">
                     <div class="cart-container">
                         <h3>Added Items</h3>
@@ -146,7 +144,7 @@
                             <p class="empty-cart">No items added yet</p>
                         </div>
                         <div class="total-amount">
-                            <h4>Total Amount: <span id="totalAmount">¥0.00</span></h4>
+                            Total Amount: <span id="totalAmount">¥0.00</span>
                         </div>
                     </div>
                     
@@ -171,34 +169,68 @@
                     </div>
                 </div>
             </div>
+            <p class="cart-info">Add items to the cart</p>
+        </div>
+    </section>
+
+    <!-- Quality Section -->
+    <section class="quality-section">
+        <div class="container quality-container">
+            <div class="quality-content">
+                <h2>Why Choose Our Services?</h2>
+                <div class="quality-items">
+                    <div class="quality-item">
+                        <h3>Premium Services</h3>
+                        <p>We use the latest technology and eco-friendly products to ensure your clothes receive the best care possible.</p>
+                    </div>
+                    <div class="quality-item">
+                        <h3>Quick Support</h3>
+                        <p>Our dedicated customer support team is available to assist you with any queries or concerns promptly.</p>
+                    </div>
+                    <div class="quality-item">
+                        <h3>Timely Delivery</h3>
+                        <p>We understand the importance of time and ensure your laundry is delivered right when you need it.</p>
+                    </div>
+                    <div class="quality-item">
+                        <h3>Affordable Prices</h3>
+                        <p>Quality service doesn't have to be expensive. We offer competitive pricing for all our services.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="quality-image">
+                <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Quality Services" style="width:100%; border-radius:8px;">
+            </div>
         </div>
     </section>
 
     <!-- Newsletter Section -->
     <section class="newsletter-section">
-        <div class="newsletter-container">
-            <h2>Subscribe to our newsletter</h2>
-            <p>Stay updated with our latest offers and services</p>
-            <form id="newsletterForm" class="newsletter-form">
-                <div class="form-group">
+        <div class="container newsletter-container">
+            <div class="newsletter-content">
+                <h2>Subscribe to our newsletter.</h2>
+                <p>Stay updated with our latest offers and services</p>
+            </div>
+            <div class="newsletter-form-container">
+                <form id="newsletterForm" class="newsletter-form">
                     <input type="text" id="newsletterName" placeholder="Full name" required>
-                </div>
-                <div class="form-group">
                     <input type="email" id="newsletterEmail" placeholder="Email" required>
-                </div>
-                <button type="submit" class="subscribe-btn">Subscribe</button>
-            </form>
+                    <button type="submit" class="subscribe-btn">Subscribe</button>
+                </form>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-container">
+        <div class="container footer-container">
             <div class="footer-section">
-                <div class="logo">
-                    <h2>FreshLaundry</h2>
-                </div>
+                <div class="footer-logo">FreshLaundry</div>
                 <p class="about-text">Lorem Ipsum Dolor Sit Amet Conssectetur. Sed At Conque.</p>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
             
             <div class="footer-section">
@@ -214,17 +246,13 @@
             
             <div class="footer-section">
                 <h3>Contact</h3>
-                <p>mail@freshlaundry.com</p>
-                <p>+91 91234 56780</p>
+                <p class="contact-info">mail@freshlaundry.com</p>
+                <p class="contact-info">+91 91234 56780</p>
             </div>
             
             <div class="footer-section">
-                <h3>Follow Us</h3>
-                <div class="social-icons">
-                    <a href="#" aria-label="Facebook">FB</a>
-                    <a href="#" aria-label="Twitter">TW</a>
-                    <a href="#" aria-label="Instagram">IG</a>
-                </div>
+                <h3>Quick Support</h3>
+                <p>We're committed to providing prompt solutions to ensure your experience is smooth and worry-free.</p>
             </div>
         </div>
         <div class="footer-bottom">

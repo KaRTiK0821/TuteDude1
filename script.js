@@ -81,7 +81,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log('SUCCESS!', response.status, response.text);
                 successMsg.style.display = 'block';
                 bookingForm.reset();
-            }, function(error) {
+            }, 
+            function(error)
+            {
                 console.log('FAILED...', error);
                 alert('Failed to send booking. Please try again.');
             });

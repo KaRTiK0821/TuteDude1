@@ -2,14 +2,14 @@
 
 /* ================== CSS Variables ================== */
 :root {
-    --color-primary: #3b82f6; /* Blue */
-    --color-primary-light: #dbeafe; /* Light Blue BG */
-    --color-dark: #1f2937; /* Dark Text / Dark Button */
-    --color-text: #4b5563; /* Regular Text */
-    --color-light-gray: #f3f4f6; /* Light Gray BG */
+    --color-primary: #3b82f6; 
+    --color-primary-light: #dbeafe; 
+    --color-dark: #1f2937;
+    --color-text: #4b5563; 
+    --color-light-gray: #f3f4f6; 
     --color-white: #ffffff;
-    --color-red: #ef4444; /* Red for Remove */
-    --color-gray-btn: #e5e7eb; /* Gray for Add */
+    --color-red: #ef4444; 
+    --color-gray-btn: #e5e7eb; 
     --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
@@ -251,7 +251,7 @@ nav ul a:hover {
 .cart-section {
     flex: 1;
     position: sticky;
-    top: 100px; /* Adjust based on nav height */
+    top: 100px;
 }
 
 .cart-card {
@@ -427,7 +427,7 @@ footer {
         flex-direction: column;
         text-align: center;
     }
-    .hero-right { order: -1; } /* Image on top */
+    .hero-right { order: -1; } 
     .booking-container {
         flex-direction: column;
     }
@@ -450,7 +450,7 @@ footer {
 
 @media (max-width: 768px) {
     h1 { font-size: 2.2rem; }
-    .nav-container ul { display: none; } /* Simple responsive nav */
+    .nav-container ul { display: none; }
     .achievements-cards {
         flex-direction: column;
         gap: 2rem;

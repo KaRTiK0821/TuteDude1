@@ -56,38 +56,56 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function sendBookingEmail(e) {
-        e.preventDefault();
+    e.preventDefault();
 
-        const name = document.getElementById('full-name').value;
-        const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
+    const name = document.getElementById('full-name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
 
-        if (cart.length === 0) {
-            alert("Please add at least one service to your cart before booking.");
-            return;
-        }
-        
-        const templateParams = {
-            from_name: name,
-            from_email: email,
-            phone_number: phone,
-            services_booked: cart.map(item => `${item.name} (₹${item.price.toFixed(2)})`).join('\n'),
-            total_amount: totalAmountEl.textContent,
-            email: email
-        };
-
-        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
-            .then(function(response) {
-                console.log('SUCCESS!', response.status, response.text);
-                successMsg.style.display = 'block';
-                bookingForm.reset();
-            }, 
-            function(error)
-            {
-                console.log('FAILED...', error);
-                alert('Failed to send booking. Please try again.');
-            });
+    if (cart.length === 0) {
+        alert("Please add at least one service to your cart before booking.");
+        return;
     }
+    
+    const templateParams = {
+        from_name: name,
+        from_email: email,
+        phone_number: phone,
+        services_booked: cart.map(item => `${item.name} (₹${item.price.toFixed(2)})`).join('\n'),
+        total_amount: totalAmountEl.textContent,
+        email: email
+    };
+
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+        .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            successMsg.style.display = 'block';
+            bookingForm.reset();
+            
+            // Reset cart and service items
+            resetCartAndServices();
+        }, 
+        function(error) {
+            console.log('FAILED...', error);
+            alert('Failed to send booking. Please try again.');
+        });
+}
+
+
+function resetCartAndServices() {
+
+    cart = [];
+
+    updateCartDisplay();
+
+    const serviceItems = document.querySelectorAll('.service-item');
+    serviceItems.forEach(item => {
+        const button = item.querySelector('button');
+        button.textContent = 'Add Item';
+        button.classList.remove('remove-btn');
+        button.classList.add('add-btn');
+    });
+}
 
     scrollToBookingBtn.addEventListener('click', (e) => {
         e.preventDefault();

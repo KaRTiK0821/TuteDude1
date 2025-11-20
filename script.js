@@ -1,9 +1,11 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => 
+{
     const EMAILJS_SERVICE_ID = 'service_tcmn13p';
     const EMAILJS_TEMPLATE_ID = 'template_i2j4h36';
     const EMAILJS_USER_ID = 'S6jXezHzV9UpRSgiY';
 
-    (function() {
+    (function() 
+    {
         emailjs.init(EMAILJS_USER_ID);
     })();
 
@@ -55,7 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCartDisplay();
     }
 
-    function sendBookingEmail(e) {
+    function sendBookingEmail(e) 
+    {
+
     e.preventDefault();
 
     const name = document.getElementById('full-name').value;
@@ -67,27 +71,35 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
     
-    const templateParams = {
+    const templateParams = 
+    {
         from_name: name,
         from_email: email,
         phone_number: phone,
+
         services_booked: cart.map(item => `${item.name} (₹${item.price.toFixed(2)})`).join('\n'),
         total_amount: totalAmountEl.textContent,
         email: email
+
+
     };
 
     emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
         .then(function(response) {
+
             console.log('SUCCESS!', response.status, response.text);
             successMsg.style.display = 'block';
+
             bookingForm.reset();
             
-            // Reset cart and service items
             resetCartAndServices();
+
         }, 
         function(error) {
             console.log('FAILED...', error);
             alert('Failed to send booking. Please try again.');
+
+
         });
 }
 
@@ -99,32 +111,41 @@ function resetCartAndServices() {
     updateCartDisplay();
 
     const serviceItems = document.querySelectorAll('.service-item');
-    serviceItems.forEach(item => {
+    serviceItems.forEach(item => 
+    {
         const button = item.querySelector('button');
+
         button.textContent = 'Add Item';
         button.classList.remove('remove-btn');
         button.classList.add('add-btn');
+
     });
 }
 
-    scrollToBookingBtn.addEventListener('click', (e) => {
+    scrollToBookingBtn.addEventListener('click', (e) => 
+    {
         e.preventDefault();
         document.getElementById('booking').scrollIntoView({
             behavior: 'smooth'
         });
     });
 
-    servicesList.addEventListener('click', (e) => {
+    servicesList.addEventListener('click', (e) => 
+    {
         const button = e.target;
         if (button.tagName === 'BUTTON') {
             const serviceItem = button.closest('.service-item');
             const name = serviceItem.dataset.name;
             const price = parseFloat(serviceItem.dataset.price);
 
+
             if (button.classList.contains('add-btn')) {
                 addItem(name, price, button);
+
             } else if (button.classList.contains('remove-btn')) {
                 removeItem(name, button);
+
+                
             }
         }
     });

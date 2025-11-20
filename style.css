@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-/* ================== CSS Variables ================== */
-:root {
+:root 
+{
     --color-primary: #3b82f6; 
     --color-primary-light: #dbeafe; 
     --color-dark: #1f2937;
@@ -13,16 +13,18 @@
     --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* ================== Global Styles ================== */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 body {
     font-family: 'Poppins', sans-serif;
     color: var(--color-text);
+
     background: var(--color-white);
 }
 
@@ -30,34 +32,55 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+
+
 }
+
 
 h1, h2, h3 {
     color: var(--color-dark);
     font-weight: 600;
+
 }
 
-h1 { font-size: 2.8rem; line-height: 1.2; }
-h2 { font-size: 2rem; margin-bottom: 1.5rem; }
-h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+h1 { 
+    font-size: 2.8rem; line-height: 1.2; 
+}
+
+h2 { 
+    font-size: 2rem; margin-bottom: 1.5rem; 
+}
+
+h3 { 
+    font-size: 1.25rem; margin-bottom: 0.5rem; 
+
+}
 
 p {
     line-height: 1.6;
     margin-bottom: 1rem;
+
+
 }
 
 img {
     max-width: 100%;
+
     display: block;
+
+
 }
 
 a {
     text-decoration: none;
     color: var(--color-text);
+
+
 }
 
 ul {
     list-style: none;
+
 }
 
 .btn {
@@ -65,34 +88,47 @@ ul {
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
     font-weight: 500;
+
     cursor: pointer;
     border: none;
+
     transition: all 0.3s ease;
+
+
 }
 
 .btn-primary {
     background: var(--color-primary);
     color: var(--color-white);
+
 }
 .btn-primary:hover {
     opacity: 0.9;
 }
 
-/* ================== Navbar ================== */
+
+
+
 nav {
     width: 100%;
     background: var(--color-white);
     padding: 1.2rem 0;
+
     border-bottom: 1px solid var(--color-light-gray);
     position: sticky;
+
     top: 0;
     z-index: 10;
+
+
 }
 
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+
 }
 
 .logo {
@@ -104,11 +140,15 @@ nav {
 nav ul {
     display: flex;
     gap: 2rem;
+
 }
 
 nav ul a:hover {
     color: var(--color-primary);
 }
+
+
+
 
 .username-btn {
     background: var(--color-primary-light);
@@ -116,9 +156,10 @@ nav ul a:hover {
     padding: 0.5rem 1rem;
     border-radius: 6px;
     font-weight: 500;
+
 }
 
-/* ================== Hero Section ================== */
+
 .hero {
     padding: 4rem 0;
 }
@@ -127,6 +168,12 @@ nav ul a:hover {
     align-items: center;
     gap: 3rem;
 }
+
+
+
+
+
+
 
 .hero-left {
     flex: 1;
@@ -139,34 +186,50 @@ nav ul a:hover {
 .hero-left p {
     font-size: 1.1rem;
     margin: 1.5rem 0;
+
+
 }
 
 .hero-right {
     flex: 1;
 }
 
-/* ================== Achievements Section ================== */
+
+
+
+
 .achievements {
     background: var(--color-primary);
     color: var(--color-white);
     padding: 3rem 0;
 }
 
+
+
+
+
+
+
 .achievements h2 {
     color: var(--color-white);
     text-align: center;
     margin-bottom: 2.5rem;
+
 }
 
 .achievements-cards {
     display: flex;
     justify-content: space-around;
+
     text-align: center;
 }
 
 .achievement-card h3 {
     color: var(--color-white);
     font-size: 2.5rem;
+
+
+
 }
 
 .achievement-card p {
@@ -174,16 +237,21 @@ nav ul a:hover {
     color: var(--color-primary-light);
 }
 
-/* ================== Booking Section ================== */
+
+
+
 .booking {
     padding: 4rem 0;
     background: var(--color-light-gray);
+
 }
+
 
 .booking-container {
     display: flex;
     gap: 2rem;
     align-items: flex-start;
+
 }
 
 .services-list {
@@ -191,7 +259,10 @@ nav ul a:hover {
     background: var(--color-white);
     border-radius: 12px;
     padding: 2rem;
+
+
     box-shadow: var(--shadow);
+
 }
 
 .services-list h2 {
@@ -201,16 +272,23 @@ nav ul a:hover {
 .services-intro {
     font-size: 0.9rem;
     margin-bottom: 1.5rem;
+
 }
+
+
 
 .service-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
+
     border: 1px solid var(--color-light-gray);
     border-radius: 8px;
+
     margin-bottom: 1rem;
+
+
 }
 
 .service-details {
@@ -219,14 +297,25 @@ nav ul a:hover {
     gap: 1rem;
 }
 
-.service-icon { font-size: 1.5rem; }
-.service-name { font-weight: 500; color: var(--color-dark); }
-.service-price { font-weight: 600; color: var(--color-primary); }
+
+
+.service-icon { 
+    font-size: 1.5rem; 
+}
+.service-name { 
+    font-weight: 500; color: var(--color-dark); 
+}
+.service-price { 
+    font-weight: 600; color: var(--color-primary); 
+}
+
+
 
 .add-btn, .remove-btn {
     padding: 0.6rem 1rem;
     font-size: 0.9rem;
     border-radius: 50px;
+
 }
 
 .add-btn {
@@ -320,7 +409,7 @@ nav ul a:hover {
     margin-bottom: 0;
 }
 
-/* ================== Quality Section ================== */
+
 .quality {
     padding: 4rem 0;
 }
@@ -342,7 +431,7 @@ nav ul a:hover {
     margin: 0 auto 1.5rem;
 }
 
-/* ================== Newsletter ================== */
+
 .newsletter {
     background: var(--color-primary-light);
     padding: 3rem 0;
@@ -377,7 +466,7 @@ nav ul a:hover {
     color: var(--color-white);
 }
 
-/* ================== Footer ================== */
+
 footer {
     background: var(--color-light-gray);
     padding: 4rem 0;
@@ -421,8 +510,8 @@ footer {
     color: var(--color-primary);
 }
 
-/* ================== Responsive ================== */
-@media (max-width: 992px) {
+@media (max-width: 992px) 
+{
     .hero-container {
         flex-direction: column;
         text-align: center;
@@ -448,7 +537,8 @@ footer {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) 
+{
     h1 { font-size: 2.2rem; }
     .nav-container ul { display: none; }
     .achievements-cards {
@@ -460,7 +550,8 @@ footer {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px) 
+{
     .footer-container {
         grid-template-columns: 1fr;
     }
